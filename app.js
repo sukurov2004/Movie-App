@@ -35,10 +35,16 @@ searchBtn.addEventListener("click", ()=>{
 
 // ! datanin cagirilmasi
 async function getFilms(searchValue) {
-  const url = `http://www.omdbapi.com/?apikey=2c84a9f6&s=${searchValue}`;
+
+  try{
+ const url = `https://www.omdbapi.com/?apikey=2c84a9f6&s=${searchValue}`;
   const res = await fetch(url);
   const data = await res.json();
  return data
+  }catch(error){
+console.error("Fetch error:", error);
+  }
+ 
 }
 
 
